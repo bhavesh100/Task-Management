@@ -107,6 +107,7 @@ fun MainScreen(viewModel: TaskViewModel = hiltViewModel()) {
                 viewModel.startEditing(null)
             },
             onSave = { title, description ->
+
                 if (editingTask == null) {
                     viewModel.addTask(Task(title = title, description = description, isCompleted = false))
                     firebaseAnalytics.logEvent("task_added", Bundle().apply {
@@ -123,6 +124,8 @@ fun MainScreen(viewModel: TaskViewModel = hiltViewModel()) {
             },
             onDelete = editingTask?.let {
                 {
+//                    test for crash
+//                    throw IllegalArgumentException("Test Crash")
                     viewModel.deleteTask(it)
                     showDialog = false
                     firebaseAnalytics.logEvent("task_deleted", Bundle().apply {
