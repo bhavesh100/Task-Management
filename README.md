@@ -87,7 +87,7 @@ firebaseAnalytics.logEvent("task_completed", Bundle().apply {
 ### Screen Recording of Crash
 
 
-- [Crash Recording (MP4)]([media/crash_demo.mp4])
+- [Crash Recording (MP4)](media/crash_demo.mp4)
 
 ## 📱 UI Screens
 
