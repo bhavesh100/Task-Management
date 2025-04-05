@@ -5,6 +5,7 @@ plugins {
     id("com.google.devtools.ksp")
     id("com.google.gms.google-services")
     id ("com.google.firebase.crashlytics")
+    id ("com.google.firebase.firebase-perf")
 }
 
 android {
@@ -60,6 +61,7 @@ dependencies {
     implementation(libs.firebase.common.ktx)
     implementation("com.google.firebase:firebase-analytics-ktx:21.6.1")
     implementation("com.google.firebase:firebase-crashlytics:18.6.1")
+    implementation("com.google.firebase:firebase-perf-ktx:20.5.2")
     ksp(libs.hilt.android.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.retrofit)
