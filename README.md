@@ -86,9 +86,9 @@ firebaseAnalytics.logEvent("task_completed", Bundle().apply {
 
 ### Screen Recording of Crash
 
-> Place video under `media/`
 
-- [Crash Recording (MP4)](media/crash_demo.mp4)
+- [Crash Recording (MP4)]([media/crash_demo.mp4](https://github.com/user-attachments/assets/382c2b2f-e429-4f0a-b095-e81c3c19abc9
+))
 
 ## 📱 UI Screens
 
@@ -113,6 +113,4 @@ firebaseAnalytics.logEvent("task_completed", Bundle().apply {
 
 ---
 
-## 📝 License
 
-This project is licensed under the MIT License.
