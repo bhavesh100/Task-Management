@@ -67,10 +67,7 @@ firebaseAnalytics.logEvent("task_completed", Bundle().apply {
 
 ### Screenshots
 
-> Add these files inside `screenshots/` and link them below
-
-- ![Task Added](screenshots/event_task_added.png)
-- ![Task Completed](screenshots/event_task_completed.png)
+- ![Task Added](screenshots/eventss_firebase.png)
 
 ---
 
@@ -78,11 +75,11 @@ firebaseAnalytics.logEvent("task_completed", Bundle().apply {
 
 ### Reproducible Crash
 
-- Add task → crash when title is empty (intentional for testing)
+- Add task → crash when user will delete task (intentional for testing)
 
 ### Crashlytics Screenshot
 
-- ![Crash Screenshot](screenshots/crashlytics_report.png)
+- ![Crash Screenshot](screenshots/crash_firebase.png)
 
 ### Screen Recording of Crash
 
