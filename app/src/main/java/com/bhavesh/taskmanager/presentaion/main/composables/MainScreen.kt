@@ -1,5 +1,7 @@
 package com.bhavesh.taskmanager.presentaion.main.composables
 
+import android.annotation.SuppressLint
+import android.os.Bundle
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -25,7 +27,10 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.bhavesh.taskmanager.domain.model.Task
 import com.bhavesh.taskmanager.presentaion.viewmodel.TaskViewModel
+import com.google.firebase.Firebase
+import com.google.firebase.analytics.analytics
 
+@SuppressLint("RememberReturnType")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(viewModel: TaskViewModel = hiltViewModel()) {
@@ -34,6 +39,7 @@ fun MainScreen(viewModel: TaskViewModel = hiltViewModel()) {
     val editingTask = viewModel.editingTask
     var showDialog by remember { mutableStateOf(false) }
     val successMessage = viewModel.successMessage
+    val firebaseAnalytics = remember { Firebase.analytics }
     val snackbarHostState = remember { androidx.compose.material3.SnackbarHostState() }
 
     LaunchedEffect(error) {
@@ -75,10 +81,16 @@ fun MainScreen(viewModel: TaskViewModel = hiltViewModel()) {
                         task = task,
                         onCheckedChange = {
                             viewModel.updateTask(task.copy(isCompleted = it))
+                            firebaseAnalytics.logEvent("task_completed", Bundle().apply {
+                                putString("task_title", task.title)
+                            })
                         },
                         onEditClick = {
                             viewModel.startEditing(task) // Edit mode
                             showDialog = true
+                            firebaseAnalytics.logEvent("task_edited", Bundle().apply {
+                                putString("task_title", task.title)
+                            })
                         }
                     )
                 }
@@ -97,8 +109,14 @@ fun MainScreen(viewModel: TaskViewModel = hiltViewModel()) {
             onSave = { title, description ->
                 if (editingTask == null) {
                     viewModel.addTask(Task(title = title, description = description, isCompleted = false))
+                    firebaseAnalytics.logEvent("task_added", Bundle().apply {
+                        putString("task_title", title)
+                    })
                 } else {
                     viewModel.updateTask(editingTask.copy(title = title, description = description))
+                    firebaseAnalytics.logEvent("task_edited", Bundle().apply {
+                        putString("task_title", title)
+                    })
                 }
                 showDialog = false
                 viewModel.startEditing(null)
@@ -107,10 +125,12 @@ fun MainScreen(viewModel: TaskViewModel = hiltViewModel()) {
                 {
                     viewModel.deleteTask(it)
                     showDialog = false
+                    firebaseAnalytics.logEvent("task_deleted", Bundle().apply {
+                        putString("task_title", it.title)
+                    })
                     viewModel.startEditing(null)
                 }
             }
         )
     }
-
 }

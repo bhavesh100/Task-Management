@@ -8,11 +8,15 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".presentaion.Application"
+        android:name=".presentaion.TaskManagerApp"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskManager"
         tools:targetApi="31">
+        <meta-data
+            android:name="com.google.firebase.analytics.APPLICATION_ID"
+            android:value="@string/google_app_id" />
+
         <activity
             android:name=".presentaion.main.MainActivity"
             android:exported="true"
