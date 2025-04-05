@@ -69,6 +69,7 @@ firebaseAnalytics.logEvent("task_completed", Bundle().apply {
 
 - ![Task Added](screenshots/eventss_firebase.png)
 
+- ![Task Added](screenshots/performance.png)
 ---
 
 ## ⚠️ Crash Reporting
