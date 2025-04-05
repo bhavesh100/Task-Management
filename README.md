@@ -87,14 +87,13 @@ firebaseAnalytics.logEvent("task_completed", Bundle().apply {
 ### Screen Recording of Crash
 
 
-- [Crash Recording (MP4)]([media/crash_demo.mp4](https://github.com/user-attachments/assets/382c2b2f-e429-4f0a-b095-e81c3c19abc9
-))
+- [Crash Recording (MP4)](media/crash_demo.mp4)
 
 ## 📱 UI Screens
 
-| Add Task | Edit Task | Complete Task |
+| Add Task | Edit Task | Task List |
 |----------|-----------|---------------|
-| ![Add](screenshots/ui_add_task.png) | ![Edit](screenshots/ui_edit_task.png) | ![Complete](screenshots/ui_complete_task.png) |
+| ![Add](screenshots/ui_add_task.jpg) | ![Edit](screenshots/ui_delete_task.jpg) | ![Complete](screenshots/ui_tasks.jpg) |
 
 ---
 
